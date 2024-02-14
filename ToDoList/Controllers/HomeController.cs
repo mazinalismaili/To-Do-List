@@ -83,17 +83,22 @@ namespace ToDoList.Controllers
 
                 await _context.AddAsync(toDoTask);
                 await _context.SaveChangesAsync();
+                return RedirectToAction("Details", new {toDoTask.Id});
 
             }
 
-            return View();
+            return RedirectToAction("Tasks");
         }
 
         public IActionResult Tasks()
         {
             var currentUser = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-            var tasks = _context.ToDoTask.Where(i=> i.UserId == currentUser).ToList();
+            var tasks = _context.ToDoTask.Where(i=> i.UserId == currentUser)
+                .Include(i => i.Status)
+                .Include(i => i.Priority)
+                .Include(i => i.User)
+                .ToList();
             return View(tasks);
         }
 
@@ -136,7 +141,6 @@ namespace ToDoList.Controllers
         public IActionResult Details(string Id)
         {
             if (Id.IsNullOrEmpty()) return RedirectToAction("Tasks");
-
             var task = _context.ToDoTask.Find(Id);
             var tsk = _context.ToDoTask
                 .Include(x => x.User)

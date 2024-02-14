@@ -293,3 +293,4 @@ C:\Users\mazin\Desktop\Projects\ToDoList\ToDoList\obj\Debug\net8.0\refint\ToDoLi
 C:\Users\mazin\Desktop\Projects\ToDoList\ToDoList\obj\Debug\net8.0\ToDoList.pdb
 C:\Users\mazin\Desktop\Projects\ToDoList\ToDoList\obj\Debug\net8.0\ToDoList.genruntimeconfig.cache
 C:\Users\mazin\Desktop\Projects\ToDoList\ToDoList\obj\Debug\net8.0\ref\ToDoList.dll
+C:\Users\mazin\Desktop\Projects\ToDoList\ToDoList\obj\Debug\net8.0\ToDoList.sourcelink.json
